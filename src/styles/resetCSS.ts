@@ -9,6 +9,10 @@ export const ResetCSS = createGlobalStyle`
         list-style: none;
     }
 
+    body {
+        background-color: ${({ theme }) => theme.colors.gray};
+    }
+
     body * {
         font-family: ${({ theme }) =>
           theme.font.family.default}, sans-serif;
