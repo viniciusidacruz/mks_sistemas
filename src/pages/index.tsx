@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import { Fragment } from 'react';
 
+import { ProductCardComponent } from '@components/index';
+import { Container } from '@/styles/pages/Home';
+
 export default function Home() {
   return (
     <Fragment>
@@ -8,9 +11,20 @@ export default function Home() {
         <title>Create Next App</title>
       </Head>
 
-      <main>
-        <h1>Oi</h1>
-      </main>
+      <Container>
+        <ul>
+          <ProductCardComponent />
+          <ProductCardComponent />
+          <ProductCardComponent />
+          <ProductCardComponent />
+          <ProductCardComponent />
+          <ProductCardComponent />
+          <ProductCardComponent />
+          <ProductCardComponent />
+          <ProductCardComponent />
+          <ProductCardComponent />
+        </ul>
+      </Container>
     </Fragment>
   );
 }
