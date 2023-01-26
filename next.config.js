@@ -5,6 +5,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   proxy: pkg.getProxyForUrl,
+  images: {
+    domains: ['mks-sistemas.nyc3.digitaloceanspaces.com'],
+  },
 };
 
 module.exports = nextConfig;
