@@ -1,29 +1,40 @@
 import React from 'react';
 import Image from 'next/image';
+import { useDispatch } from 'react-redux';
+
+import { addToCart } from '@slices/cart';
+import { formatToCurrency } from '@helpers/formatToCurrency';
 
 import * as Styles from './styles';
+import { IParamsComponent } from './types';
 
-export function ProductCardComponent() {
+export function ProductCardComponent({ data }: IParamsComponent) {
+  const dispatch = useDispatch();
+
   return (
     <Styles.ProductCard>
       <Styles.Thumbnail>
         <Image
-          src="https://mks-sistemas.nyc3.digitaloceanspaces.com/products/hyperxcloudstinger.webp"
-          alt="teste"
           fill
+          src={data.photo}
+          alt={`Imagem do produto ${data.name}`}
         />
       </Styles.Thumbnail>
 
       <Styles.Header>
-        <Styles.Title>Apple Watch Series 4 GPS</Styles.Title>
+        <Styles.Title>{data.name}</Styles.Title>
         <Styles.ContentPrice>
-          <Styles.Price>R$200</Styles.Price>
+          <Styles.Price>{formatToCurrency(data.price)}</Styles.Price>
         </Styles.ContentPrice>
       </Styles.Header>
 
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+      <p>{data.description}</p>
 
-      <Styles.Button>
+      <Styles.Button
+        onClick={() => {
+          dispatch(addToCart(data));
+        }}
+      >
         <Styles.Icon />
         <span>Comprar</span>
       </Styles.Button>

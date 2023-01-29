@@ -1,4 +1,7 @@
 import React, { Fragment } from 'react';
+import { useSelector } from 'react-redux';
+
+import { RootState } from '@/store';
 
 import { useMiniCart } from '@hooks/index';
 import { ProductRowCartComponent } from '@components/index';
@@ -6,7 +9,8 @@ import { ProductRowCartComponent } from '@components/index';
 import * as Styles from './styles';
 
 export function MiniCartComponent() {
-  const quantity = 0;
+  const { cart } = useSelector((state: RootState) => state.cart);
+  const quantity = cart.length;
 
   const {
     handleOpenDrawer,
@@ -49,22 +53,12 @@ export function MiniCartComponent() {
           </Styles.HeadingDrawer>
 
           <Styles.List>
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
-            <ProductRowCartComponent />
+            {cart.map((product) => (
+              <ProductRowCartComponent
+                data={product}
+                key={product.id}
+              />
+            ))}
           </Styles.List>
 
           <Styles.Footer>

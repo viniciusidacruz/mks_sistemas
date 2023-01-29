@@ -18,10 +18,13 @@
     "paths": {
       "@/*": ["./src/*"],
       "@styles/*": ["./src/styles/*"],
-      "@global/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@assets/*": ["./src/assets/*"],
-      "@hooks/*": ["./src/hooks/*"]
+      "@hooks/*": ["./src/hooks/*"],
+      "@models/*": ["./src/@types/models/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@slices/*": ["./src/store/slices/*"],
+
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
